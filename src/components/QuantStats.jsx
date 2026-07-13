@@ -11,8 +11,8 @@ const STATS_DATA = [
   },
   {
     label: "Spontaneous Flights",
-    value: "1",
-    subtext: "Vancouver ➔ Monterrey, MX",
+    value: "3",
+    subtext: "Vegas, Monterrey, Vancouver",
     category: "Adventure",
     icon: "✈️",
     percentage: 100
@@ -34,10 +34,10 @@ const STATS_DATA = [
     percentage: 100
   },
   {
-    label: "Birthday Chef Knives",
-    value: "1",
-    subtext: "240mm Damascus Wa-Gyuto",
-    category: "Gifts",
+    label: "You look beautiful",
+    value: "Everyday",
+    subtext: "You're the prettiest girl in the world",
+    category: "My Thoughts",
     icon: "🔪",
     percentage: 100
   },
@@ -50,9 +50,9 @@ const STATS_DATA = [
     percentage: 100
   },
   {
-    label: "Butterflies Level",
+    label: "Butterflies",
     value: "110%",
-    subtext: "Whenever she appears on screen",
+    subtext: "Whenever you appears on my screen",
     category: "Vibe",
     icon: "🦋",
     percentage: 110
