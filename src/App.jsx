@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import Timeline from './components/Timeline';
+import Memories from './components/Memories';
 import MirandaFiles from './components/MirandaFiles';
 import QuantStats from './components/QuantStats';
 import Crossword from './components/Crossword';
@@ -12,7 +12,7 @@ export default function App() {
   });
   const [passwordInput, setPasswordInput] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
-  const [activeTab, setActiveTab] = useState('timeline');
+  const [activeTab, setActiveTab] = useState('memories');
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
@@ -28,8 +28,8 @@ export default function App() {
 
   const renderActiveSection = () => {
     switch (activeTab) {
-      case 'timeline':
-        return <Timeline />;
+      case 'memories':
+        return <Memories />;
       case 'files':
         return <MirandaFiles />;
       case 'quant':
@@ -39,7 +39,7 @@ export default function App() {
       case 'countdown':
         return <Countdown />;
       default:
-        return <Timeline />;
+        return <Memories />;
     }
   };
 
@@ -113,11 +113,11 @@ export default function App() {
 
           <div className="nav-menu">
             <button 
-              className={`nav-item-btn ${activeTab === 'timeline' ? 'active' : ''}`}
-              onClick={() => setActiveTab('timeline')}
+              className={`nav-item-btn ${activeTab === 'memories' ? 'active' : ''}`}
+              onClick={() => setActiveTab('memories')}
             >
-              <span className="nav-icon">📖</span>
-              <span>Our Timeline</span>
+              <span className="nav-icon">📸</span>
+              <span>Our Memories</span>
             </button>
             <button 
               className={`nav-item-btn ${activeTab === 'files' ? 'active' : ''}`}
