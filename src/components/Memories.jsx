@@ -26,14 +26,6 @@ const MEMORIES_DATA = [
     emoji: "💖"
   },
   {
-    id: 4,
-    image: "/images/memory4.jpg",
-    caption: "Toasting to Us",
-    date: "Monterrey Gala 🥂",
-    description: "Looking sharp in matching black outfits, holding drinks, and toast-making under the beautiful green mountains of Monterrey. You look perfect in every style.",
-    emoji: "✨"
-  },
-  {
     id: 5,
     image: "/images/memory5.jpg",
     caption: "The Look of Love",
