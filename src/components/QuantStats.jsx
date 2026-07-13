@@ -3,8 +3,8 @@ import React from 'react';
 const STATS_DATA = [
   {
     label: "FaceTime Call log",
-    value: "96h 30m",
-    subtext: "Across 9 intensive days",
+    value: "200h 30m",
+    subtext: "In only 3 months",
     category: "Communication",
     icon: "📞",
     percentage: 100
@@ -18,9 +18,9 @@ const STATS_DATA = [
     percentage: 100
   },
   {
-    label: "Crosswords Solved",
-    value: "12",
-    subtext: "Best time: Saturday under 40m",
+    label: "Fastest Crossword",
+    value: "18m 24s",
+    subtext: "Best time: Saturday under 20m",
     category: "Wholesome",
     icon: "🧩",
     percentage: 85
@@ -36,9 +36,9 @@ const STATS_DATA = [
   {
     label: "You look beautiful",
     value: "Everyday",
-    subtext: "You're the prettiest girl in the world",
+    subtext: "I stare at you in awe",
     category: "My Thoughts",
-    icon: "🔪",
+    icon: "👀",
     percentage: 100
   },
   {
@@ -52,7 +52,7 @@ const STATS_DATA = [
   {
     label: "Butterflies",
     value: "110%",
-    subtext: "Whenever you appears on my screen",
+    subtext: "Whenever you're on my screen",
     category: "Vibe",
     icon: "🦋",
     percentage: 110
