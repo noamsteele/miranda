@@ -1317,3 +1317,113 @@ h3 {
     padding: 12px;
   }
 }
+
+/* LOGIN PAGE STYLES */
+.login-workspace {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 20px;
+}
+
+.login-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+  z-index: 10;
+}
+
+.login-card {
+  width: 100%;
+  padding: 40px;
+  background: linear-gradient(135deg, rgba(20, 24, 46, 0.8), rgba(8, 10, 24, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-premium);
+  text-align: center;
+  backdrop-filter: blur(var(--panel-blur));
+}
+
+.heart-lock {
+  font-size: 3rem;
+  display: inline-block;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 15px rgba(244, 63, 94, 0.6));
+}
+
+.login-header h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.login-header p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-input {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 14px 20px;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  outline: none;
+  text-align: center;
+  letter-spacing: 2px;
+  transition: var(--transition-smooth);
+}
+
+.login-input:focus {
+  border-color: var(--accent-rose);
+  box-shadow: 0 0 10px rgba(244, 63, 94, 0.15);
+}
+
+.login-btn {
+  background: var(--accent-rose);
+  border: 1px solid var(--accent-rose);
+  color: var(--text-primary);
+  padding: 14px;
+  border-radius: 12px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3);
+  transition: var(--transition-smooth);
+}
+
+.login-btn:hover {
+  background: #e11d48;
+  transform: translateY(-2px);
+}
+
+.login-error {
+  color: var(--accent-rose);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.login-footer {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
