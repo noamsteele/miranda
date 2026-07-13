@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Timeline from './components/Timeline';
 import MirandaFiles from './components/MirandaFiles';
@@ -13,28 +13,6 @@ export default function App() {
   const [passwordInput, setPasswordInput] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [activeTab, setActiveTab] = useState('timeline');
-  const [callTime, setCallTime] = useState({ hrs: 96, mins: 30, secs: 0 });
-
-  // Simulate FaceTime ticking call timer starting from 96:30:00
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCallTime(prev => {
-        let s = prev.secs + 1;
-        let m = prev.mins;
-        let h = prev.hrs;
-        if (s >= 60) {
-          s = 0;
-          m += 1;
-        }
-        if (m >= 60) {
-          m = 0;
-          h += 1;
-        }
-        return { hrs: h, mins: m, secs: s };
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
@@ -68,15 +46,17 @@ export default function App() {
   if (!isAuthenticated) {
     return (
       <div className="app-workspace login-workspace">
-        {/* Decorative Glows */}
-        <div className="bg-glow bg-glow-primary"></div>
-        <div className="bg-glow bg-glow-secondary"></div>
+        {/* Decorative Cute Accents */}
+        <div className="cute-sparkle sparkle-1">✨</div>
+        <div className="cute-sparkle sparkle-2">💖</div>
+        <div className="cute-sparkle sparkle-3">🌸</div>
+        <div className="cute-sparkle sparkle-4">💫</div>
         <div className="bg-grid-overlay"></div>
 
         <div className="login-card-container fade-in">
           <div className="login-card">
             <div className="login-header">
-              <span className="heart-lock animate-heartbeat">❤️</span>
+              <span className="heart-lock animate-heartbeat">💝</span>
               <h2>The Miranda Files</h2>
               <p>Enter the secret passcode to access our history</p>
             </div>
@@ -93,7 +73,7 @@ export default function App() {
                 className="login-input"
                 autoFocus
               />
-              <button type="submit" className="login-btn">Unlock Archives</button>
+              <button type="submit" className="login-btn">Unlock Archives ✨</button>
             </form>
 
             {errorMsg && <p className="login-error animate-bounce">{errorMsg}</p>}
@@ -110,27 +90,12 @@ export default function App() {
 
   return (
     <div className="app-workspace">
-      {/* Decorative Glows */}
-      <div className="bg-glow bg-glow-primary"></div>
-      <div className="bg-glow bg-glow-secondary"></div>
+      {/* Decorative Cute Accents */}
+      <div className="cute-sparkle sparkle-1">✨</div>
+      <div className="cute-sparkle sparkle-2">💖</div>
+      <div className="cute-sparkle sparkle-3">🌸</div>
+      <div className="cute-sparkle sparkle-4">💫</div>
       <div className="bg-grid-overlay"></div>
-
-      {/* FaceTime Status Ribbon */}
-      <header className="facetime-header">
-        <div className="header-left">
-          <div className="pulsing-green-dot"></div>
-          <span className="ft-avatar">📞</span>
-          <span className="ft-partner-name">Miranda ♡</span>
-        </div>
-        <div className="header-center">
-          <span className="ft-timer">
-            Connected: {callTime.hrs}h {callTime.mins.toString().padStart(2, '0')}m {callTime.secs.toString().padStart(2, '0')}s
-          </span>
-        </div>
-        <div className="header-right">
-          <span className="badge-premium">Taurus ♉ + Cancer ♋</span>
-        </div>
-      </header>
 
       {/* Main Workspace Frame */}
       <div className="frame-container">
@@ -138,10 +103,11 @@ export default function App() {
         {/* Navigation Sidebar */}
         <nav className="nav-panel">
           <div className="nav-logo">
-            <span className="brand-icon">✨</span>
+            <span className="brand-icon">🎀</span>
             <div>
               <h2>The Miranda Files</h2>
               <p>Adventures &amp; Gratitude</p>
+              <div className="zodiac-badge-sidebar">Taurus ♉ + Cancer ♋</div>
             </div>
           </div>
 
