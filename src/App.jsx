@@ -106,7 +106,7 @@ export default function App() {
             <span className="brand-icon">🎀</span>
             <div>
               <h2>The Miranda Files</h2>
-              <p>Adventures &amp; Gratitude</p>
+              <p>For your eyes only</p>
               <div className="zodiac-badge-sidebar">Taurus ♉ + Cancer ♋</div>
             </div>
           </div>
