@@ -69,7 +69,7 @@ export default function Countdown() {
         </div>
       )}
       <div className="countdown-footer">
-        <p>"Because you're the only person I'd alter my life path for."</p>
+        <p>"until forever with you"</p>
       </div>
     </div>
   );
