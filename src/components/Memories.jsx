@@ -4,25 +4,25 @@ const MEMORIES_DATA = [
   {
     id: 1,
     image: "/images/memory1.jpg",
-    caption: "Brunch & Smile Hangovers",
-    date: "Cozy Brunch Date",
-    description: "Laughing over plates of gravy fries and delicious food. My cheeks literally ache from smiling so much every time we hang out.",
-    emoji: "🍳"
+    caption: "Trivia Night & Poutine",
+    date: "Pub Trivia Night",
+    description: "Laughing over plates of poutine at a pub during trivia night. My cheeks literally ache from smiling so much every time we hang out.",
+    emoji: "🍟"
   },
   {
     id: 2,
     image: "/images/memory2.jpg",
     caption: "Warm Sofa Cuddles",
-    date: "A Quiet Moment",
-    description: "Holding you close, sharing a red cup, and realizing you are my safe harbor in this crazy world. Wrapping my arms around you is my absolute favorite place to be.",
+    date: "5 Mins After Meeting (Caesars Palace)",
+    description: "Holding you close on the sofa only 5 minutes after we first met in Vegas at Caesars Palace. Wrapping my arms around you is my absolute favorite place to be.",
     emoji: "🫂"
   },
   {
     id: 3,
     image: "/images/memory3.jpg",
     caption: "Vegas Promenade Hugs",
-    date: "Desert Romance 🎰",
-    description: "Getting lost together in the neon lights of the LINQ Promenade. Out of all the bright lights in Vegas, you were the only thing I could look at.",
+    date: "Day 2 of Knowing Each Other",
+    description: "Getting lost together on the LINQ Promenade on our second day knowing each other. Out of all the neon lights, you were the only thing I could look at.",
     emoji: "💖"
   },
   {
@@ -36,7 +36,6 @@ const MEMORIES_DATA = [
 ];
 
 export default function Memories() {
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [heartsCount, setHeartsCount] = useState({});
 
   const handleHeartClick = (id, e) => {
@@ -62,7 +61,6 @@ export default function Memories() {
           <div 
             key={memory.id} 
             className="polaroid-memory-card fade-in"
-            onClick={() => setSelectedPhoto(memory)}
           >
             <div className="polaroid-tape"></div>
             
@@ -88,36 +86,6 @@ export default function Memories() {
           </div>
         ))}
       </div>
-
-      {/* Lightbox / Postcard details Modal */}
-      {selectedPhoto && (
-        <div className="lightbox-overlay fade-in" onClick={() => setSelectedPhoto(null)}>
-          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-            <button className="lightbox-close" onClick={() => setSelectedPhoto(null)}>×</button>
-            
-            <div className="lightbox-inner">
-              <div className="lightbox-image-side">
-                <img src={selectedPhoto.image} alt={selectedPhoto.caption} className="lightbox-full-img" />
-              </div>
-              
-              <div className="lightbox-text-side">
-                <div className="scrapbook-sticker">{selectedPhoto.emoji}</div>
-                <span className="lightbox-date">{selectedPhoto.date}</span>
-                <h3 className="lightbox-title">{selectedPhoto.caption}</h3>
-                
-                <p className="lightbox-desc">
-                  "{selectedPhoto.description}"
-                </p>
-
-                <div className="lightbox-footer-notes">
-                  <p>Memories of Us</p>
-                  <p className="note-sig">Forever &amp; Always ♡</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
