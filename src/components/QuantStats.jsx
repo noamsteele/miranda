@@ -19,8 +19,8 @@ const STATS_DATA = [
   },
   {
     label: "Fastest Crossword",
-    value: "18m 24s",
-    subtext: "Best time: Saturday under 20m",
+    value: "22m",
+    subtext: "Best time: Saturday",
     category: "Wholesome",
     icon: "🧩",
     percentage: 85
@@ -98,25 +98,6 @@ export default function QuantStats() {
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="stats-report-card">
-        <div className="report-graphic">
-          <div className="glowing-circle">
-            <span className="heart-emoji">❤️</span>
-          </div>
-        </div>
-        <div className="report-details">
-          <h4>Astrological Compatibility Index</h4>
-          <div className="sign-match">
-            <span className="zodiac taurus">Taurus (Noam) ♉</span>
-            <span className="divider-icon">⚡</span>
-            <span className="zodiac cancer">Cancer (Miranda) ♋</span>
-          </div>
-          <p>
-            Earth meets Water. Highly strategic &amp; structured logic combined with deep emotional warmth and graphic design intuition. Result: A certified rom-com power couple.
-          </p>
-        </div>
       </div>
     </div>
   );
