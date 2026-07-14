@@ -893,8 +893,8 @@ h3 {
   display: grid;
   gap: 3px;
   width: 100%;
-  max-width: 440px;
-  aspect-ratio: 8 / 11;
+  max-width: 580px;
+  aspect-ratio: 18 / 13;
   background: rgba(255, 255, 255, 0.02);
   border: 2px solid rgba(255, 182, 193, 0.08);
   padding: 5px;
