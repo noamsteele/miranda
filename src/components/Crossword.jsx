@@ -1,59 +1,97 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-// Grid Definition: 11 rows (0-10) x 8 columns (0-7)
-const GRID_ROWS = 11;
-const GRID_COLS = 8;
+// Grid Definition: 15 rows (0-14) x 18 columns (0-17)
+const GRID_ROWS = 15;
+const GRID_COLS = 18;
 
 const CLUES = {
   across: [
-    { id: 2, number: "2", text: "Where our whirlwind story spontaneously began in April 2026", length: 5, cells: [[2,0], [2,1], [2,2], [2,3], [2,4]] },
-    { id: 5, number: "5", text: "Our wholesome first FaceTime cooking date food", length: 5, cells: [[5,3], [5,4], [5,5], [5,6], [5,7]] }
+    { id: 3, number: "3", text: "Our wholesome first FaceTime cooking date food", length: 5, cells: [[5,8], [5,9], [5,10], [5,11], [5,12]] },
+    { id: 5, number: "5", text: "What I tell you everday", length: 16, cells: [[7,0], [7,1], [7,2], [7,3], [7,4], [7,5], [7,6], [7,7], [7,8], [7,9], [7,10], [7,11], [7,12], [7,13], [7,14], [7,15]] },
+    { id: 8, number: "8", text: "The European city where we are moving together next year", length: 9, cells: [[11,9], [11,10], [11,11], [11,12], [11,13], [11,14], [11,15], [11,16], [11,17]] }
   ],
   down: [
-    { id: 1, number: "1", text: "Mexican slang for the 'guts' it took you to book that flight ('puros...')", length: 6, cells: [[0,1], [1,1], [2,1], [3,1], [4,1], [5,1]] },
-    { id: 3, number: "3", text: "The European city where we are moving in January 2027", length: 9, cells: [[2,3], [3,3], [4,3], [5,3], [6,3], [7,3], [8,3], [9,3], [10,3]] },
-    { id: 4, number: "4", text: "Her absolute favorite city in Japan (the postcard was waiting)", length: 5, cells: [[3,6], [4,6], [5,6], [6,6], [7,6]] }
+    { id: 1, number: "1", text: "How i feel about you", length: 6, cells: [[2,14], [3,14], [4,14], [5,14], [6,14], [7,14]] },
+    { id: 2, number: "2", text: "What we saw on our night at blueberry docks", length: 12, cells: [[3,11], [4,11], [5,11], [6,11], [7,11], [8,11], [9,11], [10,11], [11,11], [12,11], [13,11], [14,11]] },
+    { id: 4, number: "4", text: "Your favourite food", length: 5, cells: [[6,2], [7,2], [8,2], [9,2], [10,2]] },
+    { id: 6, number: "6", text: "How I wake you in the morning", length: 6, cells: [[7,6], [8,6], [9,6], [10,6], [11,6], [12,6]] },
+    { id: 7, number: "7", text: "Where our whirlwind story spontaneously began in April 2026", length: 5, cells: [[10,13], [11,13], [12,13], [13,13], [14,13]] }
   ]
 };
 
 const CELL_DEFAULTS = {
-  // Row 0
-  '0,1': { letter: 'H', numLabel: '1' },
-  // Row 1
-  '1,1': { letter: 'U', numLabel: '' },
-  // Row 2
-  '2,0': { letter: 'V', numLabel: '2' },
-  '2,1': { letter: 'E', numLabel: '' }, // Intersects HUEVOS
-  '2,2': { letter: 'G', numLabel: '' },
-  '2,3': { letter: 'A', numLabel: '3' }, // Intersects AMSTERDAM
-  '2,4': { letter: 'S', numLabel: '' },
-  // Row 3
-  '3,1': { letter: 'V', numLabel: '' },
-  '3,3': { letter: 'M', numLabel: '' },
-  '3,6': { letter: 'K', numLabel: '4' },
-  // Row 4
-  '4,1': { letter: 'O', numLabel: '' },
-  '4,3': { letter: 'S', numLabel: '' },
-  '4,6': { letter: 'Y', numLabel: '' },
-  // Row 5
-  '5,1': { letter: 'S', numLabel: '' },
-  '5,3': { letter: 'T', numLabel: '5' }, // Intersects TACOS / AMSTERDAM
-  '5,4': { letter: 'A', numLabel: '' },
-  '5,5': { letter: 'C', numLabel: '' },
-  '5,6': { letter: 'O', numLabel: '' }, // Intersects KYOTO / TACOS
-  '5,7': { letter: 'S', numLabel: '' },
-  // Row 6
-  '6,3': { letter: 'E', numLabel: '' },
-  '6,6': { letter: 'T', numLabel: '' },
-  // Row 7
-  '7,3': { letter: 'R', numLabel: '' },
-  '7,6': { letter: 'O', numLabel: '' },
-  // Row 8
-  '8,3': { letter: 'D', numLabel: '' },
-  // Row 9
-  '9,3': { letter: 'A', numLabel: '' },
-  // Row 10
-  '10,3': { letter: 'M', numLabel: '' }
+  // Clue 1: ILOVEU
+  '2,14': { letter: 'I', numLabel: '1' },
+  '3,14': { letter: 'L', numLabel: '' },
+  '4,14': { letter: 'O', numLabel: '' },
+  '5,14': { letter: 'V', numLabel: '' },
+  '6,14': { letter: 'E', numLabel: '' },
+  '7,14': { letter: 'U', numLabel: '' },
+
+  // Clue 2: SHOOTINGSTAR
+  '3,11': { letter: 'S', numLabel: '2' },
+  '4,11': { letter: 'H', numLabel: '' },
+  '5,11': { letter: 'O', numLabel: '' },
+  '6,11': { letter: 'O', numLabel: '' },
+  '7,11': { letter: 'T', numLabel: '' },
+  '8,11': { letter: 'I', numLabel: '' },
+  '9,11': { letter: 'N', numLabel: '' },
+  '10,11': { letter: 'G', numLabel: '' },
+  '11,11': { letter: 'S', numLabel: '' },
+  '12,11': { letter: 'T', numLabel: '' },
+  '13,11': { letter: 'A', numLabel: '' },
+  '14,11': { letter: 'R', numLabel: '' },
+
+  // Clue 3: TACOS
+  '5,8': { letter: 'T', numLabel: '3' },
+  '5,9': { letter: 'A', numLabel: '' },
+  '5,10': { letter: 'C', numLabel: '' },
+  '5,12': { letter: 'S', numLabel: '' },
+
+  // Clue 4: SUSHI
+  '6,2': { letter: 'S', numLabel: '4' },
+  '8,2': { letter: 'S', numLabel: '' },
+  '9,2': { letter: 'H', numLabel: '' },
+  '10,2': { letter: 'I', numLabel: '' },
+
+  // Clue 5: YOULOOKBEAUTIFUL
+  '7,0': { letter: 'Y', numLabel: '5' },
+  '7,1': { letter: 'O', numLabel: '' },
+  '7,2': { letter: 'U', numLabel: '' },
+  '7,3': { letter: 'L', numLabel: '' },
+  '7,4': { letter: 'O', numLabel: '' },
+  '7,5': { letter: 'O', numLabel: '' },
+  '7,7': { letter: 'B', numLabel: '' },
+  '7,8': { letter: 'E', numLabel: '' },
+  '7,9': { letter: 'A', numLabel: '' },
+  '7,10': { letter: 'U', numLabel: '' },
+  '7,12': { letter: 'I', numLabel: '' },
+  '7,13': { letter: 'F', numLabel: '' },
+  '7,15': { letter: 'L', numLabel: '' },
+
+  // Clue 6: KISSES
+  '7,6': { letter: 'K', numLabel: '6' },
+  '8,6': { letter: 'I', numLabel: '' },
+  '9,6': { letter: 'S', numLabel: '' },
+  '10,6': { letter: 'S', numLabel: '' },
+  '11,6': { letter: 'E', numLabel: '' },
+  '12,6': { letter: 'S', numLabel: '' },
+
+  // Clue 7: VEGAS
+  '10,13': { letter: 'V', numLabel: '7' },
+  '11,13': { letter: 'E', numLabel: '' },
+  '12,13': { letter: 'G', numLabel: '' },
+  '13,13': { letter: 'A', numLabel: '' },
+  '14,13': { letter: 'S', numLabel: '' },
+
+  // Clue 8: AMSTERDAM
+  '11,9': { letter: 'A', numLabel: '8' },
+  '11,10': { letter: 'M', numLabel: '' },
+  '11,12': { letter: 'T', numLabel: '' },
+  '11,14': { letter: 'R', numLabel: '' },
+  '11,15': { letter: 'D', numLabel: '' },
+  '11,16': { letter: 'A', numLabel: '' },
+  '11,17': { letter: 'M', numLabel: '' }
 };
 
 export default function Crossword() {
