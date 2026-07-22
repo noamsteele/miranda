@@ -126,6 +126,7 @@ const DAYS_SINCE_DATA = [
 ];
 
 export default function Countdowns() {
+  const [activeSubtab, setActiveSubtab] = useState('countdown');
   const [now, setNow] = useState(new Date());
 
   useEffect(() => {
@@ -155,84 +156,99 @@ export default function Countdowns() {
 
   return (
     <div className="stats-dashboard">
-      <div className="dashboard-header">
-        <span className="accent-tag">🕰️ Counting down the days</span>
-        <h3>Our Countdowns</h3>
-        <p className="dashboard-caption">
-          “You know I love counting down till the next time I see you, but I thought you should know all the things I’m counting down for”
-        </p>
+      {/* Subtabs Header Control */}
+      <div className="countdown-tab-container">
+        <button 
+          className={`countdown-tab-btn ${activeSubtab === 'countdown' ? 'active' : ''}`}
+          onClick={() => setActiveSubtab('countdown')}
+        >
+          <span className="tab-icon">⏳</span> Our Countdowns
+        </button>
+        <button 
+          className={`countdown-tab-btn ${activeSubtab === 'since' ? 'active' : ''}`}
+          onClick={() => setActiveSubtab('since')}
+        >
+          <span className="tab-icon">🌸</span> Days Since
+        </button>
       </div>
 
-      <div className="stats-grid">
-        {COUNTDOWNS_DATA.map((item, idx) => {
-          const { days, hours, mins, secs, expired } = formatCountdown(item.target);
-          return (
-            <div key={idx} className="stat-card countdown-card">
-              <div className="stat-card-header">
-                <span className="stat-category">{item.category}</span>
-                <span className="stat-icon">{item.icon}</span>
-              </div>
-              
-              <div className="stat-value-container">
-                {expired ? (
-                  <h4 className="stat-value text-accent">🎉 Today is the day!</h4>
-                ) : (
-                  <h4 className="stat-value countdown-ticker">
-                    {days}<span className="ticker-unit">d</span> {hours}<span className="ticker-unit">h</span> {mins}<span className="ticker-unit">m</span> {secs}<span className="ticker-unit">s</span>
-                  </h4>
-                )}
-                <p className="stat-label">{item.label}</p>
-                <p className="stat-subtext">📅 {item.displayDate}</p>
-              </div>
+      {activeSubtab === 'countdown' ? (
+        <div className="fade-in">
+          <div className="dashboard-header">
+            <span className="accent-tag">🕰️ Counting down the days</span>
+            <h3>Our Countdowns</h3>
+            <p className="dashboard-caption">
+              “You know I love counting down till the next time I see you, but I thought you should know all the things I’m counting down for”
+            </p>
+          </div>
 
-              <div className="stat-progress-bar">
-                {/* Visual indicator of distance, we can fill it proportionally */}
-                <div 
-                  className="stat-progress-fill" 
-                  style={{ width: expired ? '100%' : `${Math.max(5, 100 - (days / 3.65))}%` }}
-                ></div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+          <div className="countdown-list text-left">
+            {COUNTDOWNS_DATA.map((item, idx) => {
+              const { days, hours, mins, secs, expired } = formatCountdown(item.target);
+              return (
+                <div key={idx} className="countdown-list-item">
+                  <div className="list-item-left">
+                    <div className="list-item-badge">
+                      {item.icon}
+                    </div>
+                    <div className="list-item-details">
+                      <span className="list-item-category">{item.category}</span>
+                      <h4 className="list-item-title">{item.label}</h4>
+                      <p className="list-item-date">📅 Target: {item.displayDate}</p>
+                    </div>
+                  </div>
 
-      <div className="dashboard-header" style={{ marginTop: '40px' }}>
-        <span className="accent-tag">🌸 Cherishing every second</span>
-        <h3>Days Since</h3>
-        <p className="dashboard-caption">
-          “Although I am sooooo excited for all of the things we have to look forward to, I will also always remember all of the amazing moments we have already gotten together”
-        </p>
-      </div>
+                  <div className="list-item-right">
+                    {expired ? (
+                      <span className="list-ticker text-accent">🎉 Today!</span>
+                    ) : (
+                      <span className="list-ticker countdown-ticker">
+                        {days}<span className="ticker-unit">d</span> {hours}<span className="ticker-unit">h</span> {mins}<span className="ticker-unit">m</span> {secs}<span className="ticker-unit">s</span>
+                      </span>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ) : (
+        <div className="fade-in">
+          <div className="dashboard-header">
+            <span className="accent-tag">🌸 Cherishing every second</span>
+            <h3>Days Since</h3>
+            <p className="dashboard-caption">
+              “Although I am sooooo excited for all of the things we have to look forward to, I will also always remember all of the amazing moments we have already gotten together”
+            </p>
+          </div>
 
-      <div className="stats-grid">
-        {DAYS_SINCE_DATA.map((item, idx) => {
-          const daysTotal = getDaysSince(item.target);
-          return (
-            <div key={idx} className="stat-card since-card">
-              <div className="stat-card-header">
-                <span className="stat-category">{item.category}</span>
-                <span className="stat-icon">{item.icon}</span>
-              </div>
-              
-              <div className="stat-value-container">
-                <h4 className="stat-value text-glow">
-                  {daysTotal} <span className="ticker-unit">days</span>
-                </h4>
-                <p className="stat-label">{item.label}</p>
-                <p className="stat-subtext">📅 {item.displayDate}</p>
-              </div>
+          <div className="countdown-list text-left">
+            {DAYS_SINCE_DATA.map((item, idx) => {
+              const daysTotal = getDaysSince(item.target);
+              return (
+                <div key={idx} className="countdown-list-item">
+                  <div className="list-item-left">
+                    <div className="list-item-badge badge-past">
+                      {item.icon}
+                    </div>
+                    <div className="list-item-details">
+                      <span className="list-item-category">{item.category}</span>
+                      <h4 className="list-item-title">{item.label}</h4>
+                      <p className="list-item-date">📅 Occurred: {item.displayDate}</p>
+                    </div>
+                  </div>
 
-              <div className="stat-progress-bar">
-                <div 
-                  className="stat-progress-fill" 
-                  style={{ width: '100%', background: 'linear-gradient(90deg, var(--accent-purple), var(--accent-rose))' }}
-                ></div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+                  <div className="list-item-right">
+                    <span className="list-ticker text-glow">
+                      {daysTotal} <span className="ticker-unit">days</span>
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

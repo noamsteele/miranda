@@ -1677,3 +1677,128 @@ h3 {
   font-weight: 600;
 }
 
+/* Sub-tabs for Countdowns Page */
+.countdown-tab-container {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid rgba(255, 182, 193, 0.08);
+  padding-bottom: 12px;
+}
+
+.countdown-tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 10px 24px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.countdown-tab-btn:hover {
+  color: var(--accent-rose);
+  background: rgba(255, 182, 193, 0.05);
+}
+
+.countdown-tab-btn.active {
+  color: #fff;
+  background: linear-gradient(135deg, rgba(255, 117, 151, 0.2), rgba(192, 155, 255, 0.2));
+  border: 1px solid rgba(255, 117, 151, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 117, 151, 0.15);
+}
+
+/* List Style for Countdowns */
+.countdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.countdown-list-item {
+  background: var(--bg-surface);
+  border: 2px solid rgba(255, 182, 193, 0.08);
+  border-radius: var(--card-radius);
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition-smooth);
+}
+
+.countdown-list-item:hover {
+  background: var(--bg-surface-hover);
+  transform: translateX(4px);
+  border-color: rgba(255, 182, 193, 0.2);
+}
+
+.list-item-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.list-item-badge {
+  font-size: 1.6rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 117, 151, 0.08);
+  border: 1px solid rgba(255, 117, 151, 0.15);
+}
+
+.list-item-badge.badge-past {
+  background: rgba(192, 155, 255, 0.08);
+  border-color: rgba(192, 155, 255, 0.15);
+}
+
+.list-item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.list-item-category {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: var(--accent-rose);
+  font-weight: 800;
+  letter-spacing: 0.8px;
+}
+
+.list-item-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.list-item-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.list-item-right {
+  display: flex;
+  align-items: center;
+}
+
+.list-ticker {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
