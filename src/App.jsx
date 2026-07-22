@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Memories from './components/Memories';
 import MirandaFiles from './components/MirandaFiles';
-import QuantStats from './components/QuantStats';
+import Countdowns from './components/Countdowns';
 import Crossword from './components/Crossword';
 import Countdown from './components/Countdown';
 
@@ -33,7 +33,7 @@ export default function App() {
       case 'files':
         return <MirandaFiles />;
       case 'quant':
-        return <QuantStats />;
+        return <Countdowns />;
       case 'crossword':
         return <Crossword />;
       case 'countdown':
@@ -130,8 +130,8 @@ export default function App() {
               className={`nav-item-btn ${activeTab === 'quant' ? 'active' : ''}`}
               onClick={() => setActiveTab('quant')}
             >
-              <span className="nav-icon">📊</span>
-              <span>Quant Audit</span>
+              <span className="nav-icon">⏳</span>
+              <span>Our Countdowns</span>
             </button>
             <button 
               className={`nav-item-btn ${activeTab === 'crossword' ? 'active' : ''}`}

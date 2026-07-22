@@ -1665,3 +1665,15 @@ h3 {
   }
 }
 
+.countdown-ticker {
+  font-size: 1.35rem !important;
+  white-space: nowrap;
+}
+
+.countdown-ticker .ticker-unit {
+  font-size: 0.95rem;
+  color: var(--accent-rose);
+  margin-right: 2px;
+  font-weight: 600;
+}
+
