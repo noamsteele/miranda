@@ -213,7 +213,7 @@ export default function Crossword() {
       <div className="crossword-header">
         <span className="accent-tag">Wholesome Interactions</span>
         <h3>The FaceTime Crossword</h3>
-        <p className="crossword-caption">Solve our personalized crossword to unlock the Kyoto postcard message! 🗝️</p>
+        <p className="crossword-caption">Solve our personalized crossword to unlock a special message! 🗝️</p>
       </div>
 
       <div className="crossword-layout">
@@ -317,20 +317,29 @@ export default function Crossword() {
         <div className="secret-postcard-overlay fade-in">
           <div className="secret-postcard">
             <div className="postcard-header">
-              <span className="stamp-box"> Kyoto 2023 ⛩️</span>
-              <h4>Kyoto Postcard Note</h4>
+              <span className="stamp-box">Love 💌</span>
+              <h4>You Solved It! 🧩</h4>
               <p className="card-dedication">To Miranda, with absolute love 🤍</p>
             </div>
             
             <div className="postcard-body">
               <p>
-                "I picked this up in Kyoto in 2023, and I finally realize why I held onto it for so long—it was just waiting for you.
+                You’ve always been good at figuring me out, so I guess I shouldn’t be surprised you solved this puzzle so fast. Building this project for you was really just another excuse to spend hours thinking about how much you mean to me.
               </p>
               <p>
-                Coming to Monterrey was the best decision I’ve ever made. I usually pride myself on my logic, but the smartest thing I’ve ever done was listen to my gut and get on that flight. Thank you for inviting me into your world.
+                There’s something so beautiful about waking up every day knowing someone like you is in my life… Even on the mornings when we’re thousands of kilometres apart, you are always the very first thing on my mind when I open my eyes. Distance isn't always easy, but loving you makes every single kilometre completely weightless.
               </p>
               <p>
-                I am so happy the universe put us in the same place in Vegas. I’ve fallen in love with every part of who you are—your mind, your energy, and the way you see the world. Finding someone who matches my intensity is something I never thought possible, but now that I’ve found you, I’m never letting go.
+                My mind is usually always running, overthinking, and trying to solve the next thing, but you bring a peace into my world that I didn't even know I was missing. Whenever you tell me that I’m doing a good job or that you’re proud of me, it hits me deeper than you might know. I don't think you always realize how hard I can be on myself, and hearing those words from you makes me feel so deeply seen and understood.
+              </p>
+              <p>
+                More than anything, I want to give that exact same feeling back to you. I want to be the place where you always feel completely safe, endlessly supported, and celebrated for everything you are. Every piece of warmth, belief, and comfort you give to me, I want to give right back to you tenfold.
+              </p>
+              <p>
+                I am continuously in awe of who you are—your passion, your creative vision, and the light you bring into every room you enter. No matter how many puzzles we solve or dates we count down to, choosing you is the easiest answer I will ever have.
+              </p>
+              <p>
+                Thank you for loving me, for building this future with me, and for being my whole world.
               </p>
               <p className="postcard-signature">
                 I love you, Miranda. 🤍
