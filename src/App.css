@@ -1308,9 +1308,11 @@ h3 {
 }
 
 .heart-lock {
-  font-size: 3.5rem;
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
   display: inline-block;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   filter: drop-shadow(0 0 15px rgba(255, 117, 151, 0.4));
 }
 
@@ -1336,6 +1338,11 @@ h3 {
   gap: 15px;
 }
 
+.passcode-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .login-input {
   background: rgba(0, 0, 0, 0.25);
   border: 1px solid var(--border-light);
@@ -1346,13 +1353,58 @@ h3 {
   font-size: 1.05rem;
   outline: none;
   text-align: center;
-  letter-spacing: 2px;
   transition: var(--transition-smooth);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .login-input:focus {
   border-color: var(--accent-rose);
   box-shadow: 0 0 10px rgba(255, 117, 151, 0.25);
+}
+
+.login-input.hidden-text {
+  color: transparent !important;
+  caret-color: var(--accent-rose);
+}
+
+.hearts-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+  font-family: var(--font-sans);
+}
+
+.heart-char {
+  color: var(--accent-rose);
+  font-size: 1.15rem;
+  filter: drop-shadow(0 0 4px rgba(255, 117, 151, 0.9));
+  display: inline-block;
+  animation: heartPop 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes heartPop {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.placeholder-text {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
 }
 
 .login-btn {
@@ -1802,5 +1854,75 @@ h3 {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
+}
+
+/* HEART SYSTEM TRANSITION OVERLAY */
+.heart-expand-overlay {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  animation: bgOverlayFadeOutline 1.25s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.expanding-heart {
+  width: 90px;
+  height: 90px;
+  background-image: url('/images/heart_ribbon.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0 25px rgba(255, 117, 151, 0.6));
+  animation: heartExpandAnimation 1.25s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+}
+
+@keyframes heartExpandAnimation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(0.75);
+    opacity: 1;
+    filter: drop-shadow(0 0 30px rgba(255, 117, 151, 0.9));
+  }
+  85% {
+    transform: scale(75);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(95);
+    opacity: 0;
+  }
+}
+
+@keyframes bgOverlayFadeOutline {
+  0% {
+    background: rgba(23, 20, 43, 0);
+    backdrop-filter: blur(0px);
+  }
+  30% {
+    background: rgba(23, 20, 43, 0.2);
+    backdrop-filter: blur(2px);
+  }
+  65% {
+    background: rgba(23, 20, 43, 0.98);
+    backdrop-filter: blur(15px);
+    opacity: 1;
+  }
+  95% {
+    background: rgba(23, 20, 43, 0.98);
+    backdrop-filter: blur(15px);
+    opacity: 1;
+  }
+  100% {
+    background: rgba(23, 20, 43, 0.98);
+    backdrop-filter: blur(15px);
+    opacity: 0;
+  }
 }
 
