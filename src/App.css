@@ -906,6 +906,9 @@ h3 {
   aspect-ratio: 1;
   border-radius: 5px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .crossword-cell.block {
@@ -958,6 +961,12 @@ h3 {
   caret-color: var(--accent-rose);
   position: relative;
   z-index: 2;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .grid-controls {
@@ -1854,6 +1863,56 @@ h3 {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
+}
+
+/* CROSSWORD MOBILE RESPONSIVENESS INJECTIONS */
+@media (max-width: 768px) {
+  .grid-container {
+    padding: 12px !important;
+  }
+  .crossword-grid {
+    gap: 1.5px !important;
+    padding: 3px !important;
+    border-radius: 8px !important;
+  }
+  .crossword-cell {
+    border-radius: 3px !important;
+  }
+  .cell-input {
+    font-size: 0.9rem !important;
+  }
+  .cell-num {
+    font-size: 0.52rem !important;
+    top: 1px !important;
+    left: 2px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-container {
+    padding: 6px !important;
+  }
+  .crossword-grid {
+    gap: 1px !important;
+    padding: 2px !important;
+    border-radius: 6px !important;
+  }
+  .cell-input {
+    font-size: 0.75rem !important;
+  }
+  .cell-num {
+    font-size: 0.45rem !important;
+    top: 0px !important;
+    left: 1px !important;
+  }
+  .grid-controls {
+    gap: 8px !important;
+    margin-top: 15px !important;
+  }
+  .check-btn, .clear-btn, .cheat-btn {
+    padding: 8px 16px !important;
+    font-size: 0.75rem !important;
+  }
 }
 
 
