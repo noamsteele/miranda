@@ -1352,7 +1352,7 @@ h3 {
   font-family: var(--font-sans);
   font-size: 1.05rem;
   outline: none;
-  text-align: center;
+  text-align: left;
   transition: var(--transition-smooth);
   width: 100%;
   box-sizing: border-box;
@@ -1371,11 +1371,11 @@ h3 {
 .hearts-overlay {
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 20px;
+  right: 20px;
   bottom: 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 6px;
   pointer-events: none;
@@ -1856,73 +1856,5 @@ h3 {
   color: var(--text-primary);
 }
 
-/* HEART SYSTEM TRANSITION OVERLAY */
-.heart-expand-overlay {
-  position: fixed;
-  inset: 0;
-  background: transparent;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  animation: bgOverlayFadeOutline 1.25s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
 
-.expanding-heart {
-  width: 90px;
-  height: 90px;
-  background-image: url('/images/heart_ribbon.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: drop-shadow(0 0 25px rgba(255, 117, 151, 0.6));
-  animation: heartExpandAnimation 1.25s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
-}
-
-@keyframes heartExpandAnimation {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  30% {
-    transform: scale(0.75);
-    opacity: 1;
-    filter: drop-shadow(0 0 30px rgba(255, 117, 151, 0.9));
-  }
-  85% {
-    transform: scale(75);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(95);
-    opacity: 0;
-  }
-}
-
-@keyframes bgOverlayFadeOutline {
-  0% {
-    background: rgba(23, 20, 43, 0);
-    backdrop-filter: blur(0px);
-  }
-  30% {
-    background: rgba(23, 20, 43, 0.2);
-    backdrop-filter: blur(2px);
-  }
-  65% {
-    background: rgba(23, 20, 43, 0.98);
-    backdrop-filter: blur(15px);
-    opacity: 1;
-  }
-  95% {
-    background: rgba(23, 20, 43, 0.98);
-    backdrop-filter: blur(15px);
-    opacity: 1;
-  }
-  100% {
-    background: rgba(23, 20, 43, 0.98);
-    backdrop-filter: blur(15px);
-    opacity: 0;
-  }
-}
 

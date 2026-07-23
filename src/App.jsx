@@ -13,24 +13,13 @@ export default function App() {
   const [passwordInput, setPasswordInput] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [activeTab, setActiveTab] = useState('memories');
-  const [isUnlocking, setIsUnlocking] = useState(false);
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     if (passwordInput === 'princesa1') {
-      setIsUnlocking(true);
+      setIsAuthenticated(true);
+      localStorage.setItem('miranda_auth', 'true');
       setErrorMsg('');
-
-      // Step 1: Switch Authentication 750ms in, when the heart covers the viewport
-      setTimeout(() => {
-        setIsAuthenticated(true);
-        localStorage.setItem('miranda_auth', 'true');
-      }, 750);
-
-      // Step 2: Complete the animation and remove the overlay at 1250ms
-      setTimeout(() => {
-        setIsUnlocking(false);
-      }, 1250);
     } else {
       setErrorMsg('try again beautiful :)');
       setPasswordInput('');
@@ -56,13 +45,6 @@ export default function App() {
 
   return (
     <div className="app-container-root">
-      {/* Cinematic Heart-Expansion Transition Overlay */}
-      {isUnlocking && (
-        <div className="heart-expand-overlay">
-          <div className="expanding-heart"></div>
-        </div>
-      )}
-
       {!isAuthenticated ? (
         <div className="app-workspace login-workspace">
           {/* Decorative Cute Accents */}
@@ -151,7 +133,7 @@ export default function App() {
                   onClick={() => setActiveTab('files')}
                 >
                   <span className="nav-icon">🗂️</span>
-                  <span>Miranda Files</span>
+                  <span>The OG Files</span>
                 </button>
                 <button 
                   className={`nav-item-btn ${activeTab === 'quant' ? 'active' : ''}`}

@@ -140,8 +140,8 @@ export default function MirandaFiles() {
     <div className="files-section">
       <div className="files-header">
         <span className="accent-tag">The Keep Archive</span>
-        <h3>ABC’s of Miranda</h3>
-        <p className="files-caption">A running log of quirks, connections, and things I find cute about her</p>
+        <h3>The OG Files</h3>
+        <p className="files-caption">A running log of quirks, connections, and things I find cute about you</p>
       </div>
 
       {/* Filter and Search Box */}

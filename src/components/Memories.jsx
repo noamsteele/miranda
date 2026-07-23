@@ -12,7 +12,7 @@ const MEMORIES_DATA = [
   {
     id: 2,
     image: "/images/memory2.jpg",
-    caption: "Warm Sofa Cuddles",
+    caption: "Instant Connection",
     date: "5 Mins After Meeting (Caesars Palace)",
     description: "Holding you close on the sofa only 5 minutes after we first met in Vegas at Caesars Palace. Wrapping my arms around you is my absolute favorite place to be.",
     emoji: "🫂"
